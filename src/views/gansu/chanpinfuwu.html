@@ -1,0 +1,56 @@
+{template temp/header.html}
+<div class="pd-header">
+    <div class="page-top-img" style="background-image: url('{$cats[12]['image']}');"></div>
+    <div style="position: relative; overflow: hidden;">
+        <img src="{SITE_THEME}image/page-bg.jpg" style="position: absolute; width: 100%; bottom: 0; left: 0;  height: 100%;">
+        <div class="unified-width page-info" style="z-index: 1; position: relative;">
+            {php $zcs = getCatNav(12);}
+            <div class="page-left-menu">
+                {loop $zcs $i}
+                <a href="{$i.url}" {if $i.catid == $catid}class="active"{/if}>{$i.catname}</a>
+                {/loop}
+            </div>
+            <div class="page-right-content" style="padding-left: 110px;padding-right: 120px;">
+                <ul class="cpfw-list">
+                    {list catid=$catid more=1 return=item}
+                    <li>
+                        <div>
+                            <img src="{$item.tubiao}" alt="">
+                            <h3>{$item.title}</h3>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>产品简述：</th>
+                                <td>{$item.chanpinjianshu}</td>
+                            </tr>
+                            <tr>
+                                <th>适用对象：</th>
+                                <td>{$item.shiyongduixiang}</td>
+                            </tr>
+                            <tr>
+                                <th>基本条件：</th>
+                                <td>{$item.jibentiaojian}</td>
+                            </tr>
+                            <tr>
+                                <th>反担保措施：</th>
+                                <td>{$item.fandanbaocuoshi}</td>
+                            </tr>
+                            <tr>
+                                <th>办理流程：</th>
+                                <td>{$item.banliliucheng}</td>
+                            </tr>
+                            <tr>
+                                <th>产品特色：</th>
+                                <td>{$item.chanpintese}</td>
+                            </tr>
+                        </table>
+                        <span class="clear"></span>
+                    </li>
+                    {/list}
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+{template temp/footer.html}

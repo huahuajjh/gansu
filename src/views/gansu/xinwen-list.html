@@ -1,0 +1,76 @@
+{template temp/header.html}
+{php $timeArr = array();}
+{list catid=$catid more=1 order=updatetime_desc}
+    {php $timeYear = date("Y", $t['updatetime']);}
+    {if !array_key_exists($timeYear, $timeArr)}
+        {php $timeArr[$timeYear] = array();}
+    {/if}
+    {php array_push($timeArr[$timeYear], $t['id']);}
+{/list}
+<div class="pd-header">
+    <div class="page-top-img" style="background-image: url('{$cats[15]['image']}');"></div>
+    <div style="position: relative; overflow: hidden;">
+        <img src="{SITE_THEME}image/page-bg.jpg" style="position: absolute; width: 100%; bottom: 0; left: 0;  height: 100%;">
+        <div class="unified-width page-info" style="z-index: 1; position: relative;">
+            {php $zcs = getCatNav(15);}
+            <div class="page-left-menu">
+                {loop $zcs $i}
+                <a href="{$i.url}" {if $i.catid == $catid}class="active"{/if}>{$i.catname}</a>
+                {/loop}
+            </div>
+            <div class="page-right-content" style="position: relative;">
+                <form class="js-year" id="cx" action="{$url}" method="GET">
+                    按年份检索
+                    <select name="year" onchange="goYear(this)">
+                        <option value="">全部</option>
+                        {loop $timeArr $k=>$v}
+                            <option value="{$k}" {if $_GET['year'] == $k}selected{/if}>{$k}</option>
+                        {/loop}
+                    </select>
+                </form>
+                <ul class="xinwen-list">
+                    {if $_GET['year']}
+                        {php $yearArr = join($timeArr[$_GET['year']]);}
+                        {list catid=$catid and INid=$yearArr more=1 page=$page pagesize=8 order=updatetime}
+                        <li>
+                            <img src="{$t['suofangtu']}" alt="">
+                            <div class="xinwen-list-info">
+                                <h3>{$t['title']}</h3>
+                                <p>{$t['description']}</p>
+                                <div>
+                                    <span>{date("Y-m-d", $t['updatetime'])}</span>
+                                    <a href="{$t['url']}">查看详情</a>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        {/list}
+                    {else}
+                        {list catid=$catid more=1 page=$page pagesize=8 order=updatetime}
+                        <li>
+                            <img src="{$t['suofangtu']}" alt="">
+                            <div class="xinwen-list-info">
+                                <h3>{$t['title']}</h3>
+                                <p>{$t['description']}</p>
+                                <div>
+                                    <span>{date("Y-m-d", $t['updatetime'])}</span>
+                                    <a href="{$t['url']}">查看详情</a>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        {/list}
+                    {/if}
+                </ul>
+                {$pagelist}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function goYear(d) {
+        location.href = '{$url}' + '&year=' + $(d).val();
+    }
+</script>
+{template temp/footer.html}

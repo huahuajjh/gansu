@@ -1,0 +1,1 @@
+a:1:{i:1;a:5:{s:2:"id";s:1:"1";s:4:"site";s:1:"1";s:4:"type";s:1:"2";s:4:"name";s:18:"公司简介图片";s:7:"content";s:31:"uploadfiles/image/201704/37.jpg";}}

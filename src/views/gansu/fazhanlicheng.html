@@ -1,0 +1,27 @@
+{template temp/header.html}
+    <div class="pd-header">
+        <div class="page-top-img" style="background-image: url('{$cats[3]['image']}');"></div>
+        <div style="position: relative; overflow: hidden;">
+            <img src="{SITE_THEME}image/page-bg.jpg" style="position: absolute; width: 100%; bottom: 0; left: 0;  height: 100%;">
+            <div class="unified-width page-info" style="z-index: 1; position: relative;">
+                {php $zcs = getCatNav(3);}
+                <div class="page-left-menu">
+                    {loop $zcs $i}
+                    <a href="{$i.url}" {if $i.catid == $catid}class="active"{/if}>{$i.catname}</a>
+                    {/loop}
+                </div>
+                <div class="page-right-content">
+                    <ul class="falc-list">
+                        {list catid=$catid return=item}
+                        <li>
+                            <span class="falc-dot"></span>
+                            {$item[title]}
+                        </li>
+                        {/list}
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+{template temp/footer.html}
