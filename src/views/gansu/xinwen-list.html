@@ -1,12 +1,12 @@
 {template temp/header.html}
 {php $timeArr = array();}
-{list catid=$catid more=1 order=updatetime_desc}
+{sql "select * from gs_content_1 where catid=$catid order by updatetime desc"}
     {php $timeYear = date("Y", $t['updatetime']);}
     {if !array_key_exists($timeYear, $timeArr)}
         {php $timeArr[$timeYear] = array();}
     {/if}
     {php array_push($timeArr[$timeYear], $t['id']);}
-{/list}
+{/sql}
 <div class="pd-header">
     <div class="page-top-img" style="background-image: url('{$cats[15]['image']}');"></div>
     <div style="position: relative; overflow: hidden;">
@@ -30,7 +30,7 @@
                 </form>
                 <ul class="xinwen-list">
                     {if $_GET['year']}
-                        {php $yearArr = join($timeArr[$_GET['year']]);}
+                        {php $yearArr = join(",", $timeArr[$_GET['year']]);}
                         {list catid=$catid and INid=$yearArr more=1 page=$page pagesize=8 order=updatetime}
                         <li>
                             <img src="{$t['suofangtu']}" alt="">

@@ -650,6 +650,7 @@ class View {
 			$start_id = $pagesize * ($system['page'] - 1);
 			$limit = ' LIMIT ' . $start_id . ',' . $pagesize;
 			$pagelist = $pagelist->total($total)->url($pageurl)->num($pagesize)->page($system['page'])->output();
+			$pagelist = str_replace("{year}", $_GET['year'], $pagelist);
 		}
 		//查询字段筛选
 		if (isset($system['fields']) && $system['fields']) {

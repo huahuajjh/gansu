@@ -32,8 +32,9 @@
                 <li>
                     <a href="<?php echo $cats[13]['url']; ?>">产品服务</a>
                     <ul>
-                        <li><a href="<?php echo $cats[13]['url']; ?>">融资性担保</a></li>
-                        <li><a href="<?php echo $cats[14]['url']; ?>">非融资性担保</a></li>
+                        <li><a href="<?php echo $cats[13]['url']; ?>">融资性担保业务</a></li>
+                        <li><a href="<?php echo $cats[14]['url']; ?>">非融资性担保业务</a></li>
+                        <li><a href="<?php echo $cats[21]['url']; ?>">业务流程</a></li>
                     </ul>
                 </li>
                 <li>

@@ -18,9 +18,9 @@ return array(
         'div'     => '<nav class="pagination"><ul>{content}</ul></nav>',
         'total'   => '<li><a>{content}</a></li>',
         'nowpage' => '<li><a  class="current">{content}</a></li> ',
-        'page'    => '<li><a href="{url}">{content}</a></li>',
-        'pre'     => '<li><a href="{url}">{content}</a></li>',
-        'next'    => '<li><a href="{url}">{content}</a></li>',
+        'page'    => '<li><a href="{url}&year={year}">{content}</a></li>',
+        'pre'     => '<li><a href="{url}&year={year}">{content}</a></li>',
+        'next'    => '<li><a href="{url}&year={year}">{content}</a></li>',
         'note'    => '<li><a>{content}</a></li>'
     )
 );
