@@ -136,15 +136,15 @@
             </div>
             <div class="index-news-list">
                 <ul>
-                    {list catid=16 num=5 more=1 return=item}
+                    {list catid=16 order=updatetime num=5 more=1 return=item}
                     <li>
-                        <a href="{$item['url']}">【公司动态】{$item['title']}</a>
+                        <a href="{$item['url']}">【公司动态】{$item['title']} <span>{date("Y-m-d", $item['updatetime'])}</span></a>
                     </li>
                     {/list}
                 </ul>
                 <ul>
-                    {list catid=17 num=5 more=1 return=item}
-                    <li><a href="{$item['url']}">【行业资讯】{$item['title']}</a></li>
+                    {list catid=17 order=updatetime num=5 more=1 return=item}
+                    <li><a href="{$item['url']}">【行业资讯】{$item['title']} <span>{date("Y-m-d", $item['updatetime'])}</span></a></li>
                     {/list}
                 </ul>
             </div>

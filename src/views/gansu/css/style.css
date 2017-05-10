@@ -871,6 +871,16 @@
     overflow:hidden;
     display: block;
     width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding-right: 90px;
+}
+
+.index-news-list ul li a span{
+    position: absolute;
+    right: 0;
+    width: 80px;
+    text-align: right;
 }
 
 .index-cpjs {

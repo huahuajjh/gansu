@@ -136,14 +136,14 @@
             </div>
             <div class="index-news-list">
                 <ul>
-                    <?php $return_item = $this->_listdata("catid=16 num=5 more=1  return=item"); extract($return_item); $count_item=count($return_item); if (is_array($return_item)) { foreach ($return_item as $key_item=>$item) { ?>
+                    <?php $return_item = $this->_listdata("catid=16 order=updatetime num=5 more=1  return=item"); extract($return_item); $count_item=count($return_item); if (is_array($return_item)) { foreach ($return_item as $key_item=>$item) { ?>
                     <li>
-                        <a href="<?php echo $item['url']; ?>">【公司动态】<?php echo $item['title']; ?></a>
+                        <a href="<?php echo $item['url']; ?>">【公司动态】<?php echo $item['title']; ?> <span><?php echo date("Y-m-d", $item['updatetime']); ?></span></a>
                     </li>
                     <?php } } ?>
                 </ul>
                 <ul>
-                    <?php $return_item = $this->_listdata("catid=17 num=5 more=1  return=item"); extract($return_item); $count_item=count($return_item); if (is_array($return_item)) { foreach ($return_item as $key_item=>$item) { ?>
+                    <?php $return_item = $this->_listdata("catid=17 order=updatetime num=5 more=1  return=item"); extract($return_item); $count_item=count($return_item); if (is_array($return_item)) { foreach ($return_item as $key_item=>$item) { ?>
                     <li><a href="<?php echo $item['url']; ?>">【行业资讯】<?php echo $item['title']; ?></a></li>
                     <?php } } ?>
                 </ul>

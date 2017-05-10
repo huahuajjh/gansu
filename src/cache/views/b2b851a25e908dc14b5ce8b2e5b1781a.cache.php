@@ -1,4 +1,4 @@
-{template temp/header.html}
+<?php include $this->_include('temp/header.html'); ?>
 <style type="text/css">
     .xinwen-info {
         padding-top: 60px;
@@ -32,25 +32,25 @@
     }
 </style>
 <div class="pd-header">
-    <div class="page-top-img" style="background-image: url('{$cats[15]['image']}');"></div>
+    <div class="page-top-img" style="background-image: url('<?php echo $cats[15]['image']; ?>');"></div>
     <div style="position: relative; overflow: hidden;">
-        <img src="{SITE_THEME}image/page-bg.jpg" style="position: absolute; width: 100%; bottom: 0; left: 0;  height: 100%;">
+        <img src="<?php echo SITE_THEME; ?>image/page-bg.jpg" style="position: absolute; width: 100%; bottom: 0; left: 0;  height: 100%;">
         <div class="unified-width page-info" style="z-index: 1; position: relative;">
-            {php $zcs = getCatNav(15);}
+            <?php $zcs = getCatNav(15); ?>
             <div class="page-left-menu">
-                {loop $zcs $i}
-                <a href="{$i.url}" {if $i.catid == $catid}class="active"{/if}>{$i.catname}</a>
-                {/loop}
+                <?php if (is_array($zcs)) { $count=count($zcs);foreach ($zcs as $i) { ?>
+                <a href="<?php echo $i['url']; ?>" <?php if ($i['catid'] == $catid) { ?>class="active"<?php } ?>><?php echo $i['catname']; ?></a>
+                <?php } } ?>
             </div>
             <div class="page-right-content xinwen-info">
-                <h2>{$title}</h2>
+                <h2><?php echo $title; ?></h2>
                 <ul>
-                    <li>来源：{$laiyuan}</li>
-                    <li>作者：{$username}</li>
-                    <li>发布时间：{date("Y-m-d", $updatetime)}</li>
-                    <li>浏览次数：{$hits}</li>
+                    <li>来源：<?php echo $laiyuan; ?></li>
+                    <li>作者：<?php echo $username; ?></li>
+                    <li>发布时间：<?php echo date("Y-m-d", $updatetime); ?></li>
+                    <li>浏览次数：<?php echo $hits; ?></li>
                 </ul>
-                <div class="content">{$content}</div>
+                <div class="content"><?php echo $content; ?></div>
                 <!-- JiaThis Button BEGIN -->
                 <div class="jiathis_style_32x32">
                     <a class="jiathis_button_qzone"></a>
@@ -64,12 +64,11 @@
                 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
                 <!-- JiaThis Button END -->
                 <div class="articlebook">
-                    {if $prev_page}<p><strong>上一篇：</strong><a href="{$prev_page['url']}">{$prev_page['title']}</a> </p>{/if}
-                    {if $next_page}<p><strong>下一篇：</strong><a href="{$next_page['url']}">{$next_page['title']}</a> </p>{/if}
+                    <?php if ($prev_page) { ?><p><strong>上一篇：</strong><a href="<?php echo $prev_page['url']; ?>"><?php echo $prev_page['title']; ?></a> </p><?php }  if ($next_page) { ?><p><strong>下一篇：</strong><a href="<?php echo $next_page['url']; ?>"><?php echo $next_page['title']; ?></a> </p><?php } ?>
                 </div>
             </div>
             <div class="clear"></div>
         </div>
     </div>
 </div>
-{template temp/footer.html}
+<?php include $this->_include('temp/footer.html'); ?>
