@@ -48,7 +48,7 @@
                     <li>来源：{$laiyuan}</li>
                     <li>作者：{$username}</li>
                     <li>发布时间：{date("Y-m-d", $updatetime)}</li>
-                    <li>浏览次数：{$hits}</li>
+                    <li>浏览次数：<script type="text/javascript" src="{url('api/hits',array('id'=>$id, 'hits'=>$hits))}"></script></li>
                 </ul>
                 <div class="content">{$content}</div>
                 <!-- JiaThis Button BEGIN -->
