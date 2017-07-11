@@ -546,9 +546,9 @@
 
 .weixin-img {
     position: fixed;
-    top: 50%;
+    top: 30px;
     right: 20px;
-    margin-top: -104px;
+    /* margin-top: -104px; */
     z-index: 999;
     width: 100px;
 }
